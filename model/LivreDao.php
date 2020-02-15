@@ -9,10 +9,18 @@ class LivreDao extends BDD {
 	}
 
 	function getAll() {
-		return $this->bdd->query("SELECT * FROM LANGUE;")->fetchAll();
+		return $this->bdd->query("SELECT * FROM LIVRE_TEST;")->fetchAll();
 	}
 
 	function getById($id) {
-		return $this->$bdd->query("SELECT * FROM LANGUE WHERE ID = " . $id . ";")->fetchAll();
+		return $this->bdd->query("SELECT * FROM LIVRE_TEST WHERE ID = " . $id . ";")->fetch();
 	}
+
+	function getByName($name) {
+		return $this->bdd->query("SELECT * FROM LIVRE_TEST WHERE TITRE_LIVRE = '" . $name . "';")->fetch();
+	}
+
+	// function get5Last(){
+	// 	return $this->$bdd->query("SELECT * FROM LIVRE WHERE ID = " . $id . ";")->fetchAll(); // la modif, elle est pas bonne
+	// }
 }

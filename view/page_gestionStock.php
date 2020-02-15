@@ -4,7 +4,7 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 		<link rel="stylesheet" href="src/styles/theme_bootstrap.css">
-		<link rel="stylesheet" href="src/styles/style.css">
+		<link rel="stylesheet" href="../public/style.css">
 
 		<title>Librairy</title>
 	</head>
@@ -18,22 +18,15 @@
 			<p>Compte</p>
 			<p>Pannier</p>
 			<p>option</p>
-			<p>options avancées</p>
+			<p><a href="advancedSetting.html">options avancées</a></p>
+			<hr/>
 		</header>
+		<hr/>
 
-		<div class="imgAcc">
-			<p>ici une image zoli<p>
-		</div>
+		<section class="element article">
+			<?= isset($mainContent) ? $mainContent : "" ?>
+		</section>
 
-		<nav class="barreNav">
-			<ul>
-				<li>Section1 (Livres) </li>
-				<li>Section2(DVD)</li>
-				<li>Section3(CD)</li>
-			</ul>
-		</nav>
-
-		<?= isset($mainContent) ? $mainContent : "" ?>
 
 	</body>
 </html>
