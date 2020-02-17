@@ -11,6 +11,6 @@ class RechercheController {
 			if(isset($_GET["recherche"])) {
 				$searchLivre = $daoLivre->getByName($_GET["recherche"]);
 			}
-			include("view/accueil/redir.php");
+			include("view/accueil/recherche.php");
 		}
 }

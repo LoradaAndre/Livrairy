@@ -1,7 +1,30 @@
-.active{
+/* .active{
 	color: orange;
 }
-.container{
+header{
 	display: grid;
-  	grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  	grid-template-columns: repeat(6, 1fr);
 }
+
+.sousCategorie{
+	display: grid;
+	grid-template-columns: 1fr;
+  	grid-template-rows: repeat(3, 1em);
+}
+header{
+	background-color: yellow;
+}
+.barreNav ul{
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+} */
+.form-inline .form-control{
+	width: 75%;
+}
+.no-padding > [class*='col-'] {
+padding-right:0;
+padding-left:0;
+}
+/* .nav-item{
+	color: white;
+} */

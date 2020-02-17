@@ -9,10 +9,10 @@ class DVD_Dao extends BDD {
 	}
 
 	function getAll() {
-		return $this->bdd->query("SELECT * FROM DVD;")->fetchAll();
+		return $this->bdd->query("SELECT * FROM DVD_TEST;")->fetchAll();
 	}
 
 	function getById($id) {
-		return $this->$bdd->query("SELECT * FROM DVD WHERE ID = " . $id . ";")->fetchAll();
+		return $this->$bdd->query("SELECT * FROM DVD_TEST WHERE ID = " . $id . ";")->fetchAll();
 	}
 }

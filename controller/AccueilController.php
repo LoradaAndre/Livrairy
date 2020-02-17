@@ -4,7 +4,7 @@ require_once("model/LivreDao.php");
 // require_once("model/CD_Dao.php");
 // require_once("model/DVD_Dao.php");
 
-class IndexController {
+class AccueilController {
 
 		static function index() {
 			$daoLivre = new LivreDao();
@@ -19,6 +19,6 @@ class IndexController {
 			// $cd5Last = $daoCd->get5Last();
 			// $dvd5Last = $daoDvd->get5Last();
 
-			include("view/accueil/accueil.php");
+			include("view/accueil/corps.php");
 		}
 }

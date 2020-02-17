@@ -2,7 +2,7 @@
 
 require_once("model/LivreDao.php");
 
-class IndexController {
+class LivreController {
 
 		static function index() {
 			$daoLivre = new LivreDao();

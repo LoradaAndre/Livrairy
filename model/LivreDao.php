@@ -17,7 +17,7 @@ class LivreDao extends BDD {
 	}
 
 	function getByName($name) {
-		return $this->bdd->query("SELECT * FROM LIVRE_TEST WHERE TITRE_LIVRE = '" . $name . "';")->fetch();
+		return $this->bdd->query("SELECT * FROM LIVRE_TEST WHERE TITRE_LIVRE LIKE '%" . $name . "%';")->fetch();
 	}
 
 	// function get5Last(){

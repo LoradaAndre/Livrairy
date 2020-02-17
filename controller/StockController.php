@@ -2,7 +2,7 @@
 
 require_once("model/LivreDao.php");
 
-class IndexController {
+class StockController {
 
 		static function index() {
 			$daoLivre = new LivreDao();
@@ -14,6 +14,6 @@ class IndexController {
 			// $cd5Last = $daoCd->get5Last();
 			// $dvd5Last = $daoDvd->get5Last();
 
-			include("view/gestionStock.php");
+			include("view/gestionStock/gestionStock.php");
 		}
 }

@@ -9,10 +9,10 @@ class CD_Dao extends BDD {
 	}
 
 	function getAll() {
-		return $this->bdd->query("SELECT * FROM CD;")->fetchAll();
+		return $this->bdd->query("SELECT * FROM CD_TEST;")->fetchAll();
 	}
 
 	function getById($id) {
-		return $this->$bdd->query("SELECT * FROM CD WHERE ID = " . $id . ";")->fetchAll();
+		return $this->$bdd->query("SELECT * FROM CD_TEST WHERE ID = " . $id . ";")->fetchAll();
 	}
 }

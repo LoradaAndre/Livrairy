@@ -8,27 +8,45 @@ if(!isset($_GET["page"]))
 	$_GET["page"] = "accueil";
 
 $mainContent = getPageContent($_GET["page"]);
+$page = $_GET["page"];
+
 //on inclus la vue de base
-include("view/page_accueil.php");
+include("view/pagedebase.php");
 
 function getPageContent($page) {
 	ob_start();
 	switch ($_GET["page"]) {
 		//On apelle les controleurs utiles pour la page index
 		case 'accueil':
-			require_once("controller/IndexController.php");
-			IndexController::index();
+			require_once("controller/AccueilController.php");
+			AccueilController::index();
 
 			break;
-		case 'gestionStock':
-			require_once("controller/StockController.php");
-			StockController::index();
-			break;
-			
+
 		case 'resRecherche':
 			require_once("controller/RechercheController.php");
 			RechercheController::index();
+
 			break;
+
+		case 'gestionStockLivre':
+			require_once("controller/StockLivreController.php");
+			StockLivreController::index();
+
+			break;
+
+		case 'gestionStockDvd':
+			require_once("controller/StockDvdController.php");
+			StockDvdController::index();
+
+		break;
+
+		case 'gestionStockCd':
+			require_once("controller/StockCdController.php");
+			StockCdController::index();
+
+			break;
+
 		// case 'dvd'
 		// 	require_once("controller/DVD_Controller.php");
 		// 	DVD_Controller::index();
