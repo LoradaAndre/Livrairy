@@ -9,18 +9,38 @@ class LivreDao extends BDD {
 	}
 
 	function getAll() {
-		return $this->bdd->query("SELECT * FROM LIVRE_TEST;")->fetchAll();
+		return $this->bdd->query("SELECT * FROM LIVRE, AUTEUR_LIVRE, EDITEUR, LANGUE, GENRE_LIVRE, SUPPORT WHERE LIVRE.LIV_ID_AUTEUR = AUTEUR_LIVRE.AUTLIV_ID AND LIVRE.LIV_ID_EDITEUR = EDITEUR.EDI_ID AND LIVRE.LIV_ID_LANGUE = LANGUE.LAN_ID AND LIVRE.LIV_ID_SUPPORT = SUPPORT.SUPP_ID AND LIVRE.LIV_ID_GENRE = GENRE_LIVRE.GENLIV_ID ;")->fetchAll();
 	}
 
 	function getById($id) {
-		return $this->bdd->query("SELECT * FROM LIVRE_TEST WHERE ID = " . $id . ";")->fetch();
+		return $this->bdd->query("SELECT * FROM LIVRE, AUTEUR_LIVRE, EDITEUR, LANGUE, GENRE_LIVRE, SUPPORT WHERE LIVRE.LIV_ID_AUTEUR = AUTEUR_LIVRE.AUTLIV_ID AND LIVRE.LIV_ID_EDITEUR = EDITEUR.EDI_ID AND LIVRE.LIV_ID_LANGUE = LANGUE.LAN_ID AND LIVRE.LIV_ID_SUPPORT = SUPPORT.SUPP_ID AND LIVRE.LIV_ID_GENRE = GENRE_LIVRE.GENLIV_ID AND LIV_ID = " . $id . ";")->fetch();
 	}
 
 	function getByName($name) {
-		return $this->bdd->query("SELECT * FROM LIVRE_TEST WHERE TITRE_LIVRE LIKE '%" . $name . "%';")->fetch();
+		return $this->bdd->query("SELECT * FROM LIVRE, AUTEUR_LIVRE, EDITEUR, LANGUE, GENRE_LIVRE, SUPPORT WHERE LIVRE.LIV_ID_AUTEUR = AUTEUR_LIVRE.AUTLIV_ID AND LIVRE.LIV_ID_EDITEUR = EDITEUR.EDI_ID AND LIVRE.LIV_ID_LANGUE = LANGUE.LAN_ID AND LIVRE.LIV_ID_SUPPORT = SUPPORT.SUPP_ID AND LIVRE.LIV_ID_GENRE = GENRE_LIVRE.GENLIV_ID AND LIVRE.LIV_TITRE LIKE '%" . $name . "%';")->fetchAll();
 	}
 
-	// function get5Last(){
-	// 	return $this->$bdd->query("SELECT * FROM LIVRE WHERE ID = " . $id . ";")->fetchAll(); // la modif, elle est pas bonne
-	// }
+	function getByRealisateur($auteur) {
+		return $this->bdd->query("SELECT * FROM LIVRE, AUTEUR_LIVRE WHERE LIVRE.LIV_ID_AUTEUR = AUTEUR_LIVRE.AUTLIV_ID AND (AUTEUR_LIVRE.AUTLIV_NOM LIKE '%" . $auteur . "%' OR AUTEUR_LIVRE.AUTLIV_PRENOM LIKE '%" . $auteur . "%');")->fetch();
+	}
+
+	function getAlerteOrangeLivre(){
+		return $this->bdd->query("SELECT * FROM LIVRE WHERE LIVRE.LIV_QUANTITE <50 AND LIVRE.LIV_QUANTITE > 10;")->fetchAll();
+	}
+
+	function getAlerteRougeLivre(){
+		return $this->bdd->query("SELECT * FROM LIVRE WHERE LIVRE.LIV_QUANTITE < 10 AND LIVRE.LIV_QUANTITE > 0")->fetchAll();
+	}
+
+	function getRuptureDeStockLivre(){
+		return $this->bdd->query("SELECT * FROM LIVRE WHERE LIVRE.LIV_QUANTITE <= 0")->fetchAll();
+	}
+
+	function get5LastLivre(){
+		return $this->bdd->query("SELECT * FROM LIVRE, AUTEUR_LIVRE, EDITEUR, LANGUE, GENRE_LIVRE, SUPPORT WHERE LIVRE.LIV_ID_AUTEUR = AUTEUR_LIVRE.AUTLIV_ID AND LIVRE.LIV_ID_EDITEUR = EDITEUR.EDI_ID AND LIVRE.LIV_ID_LANGUE = LANGUE.LAN_ID AND LIVRE.LIV_ID_SUPPORT = SUPPORT.SUPP_ID AND LIVRE.LIV_ID_GENRE = GENRE_LIVRE.GENLIV_ID ORDER BY LIVRE.LIV_DATE_PARUTION DESC LIMIT 5;")->fetchAll();
+	}
+
+	function getStock($id){
+		return $this->bdd->query("SELECT LIV_QUANTITE FROM LIVRE WHERE LIV_ID = " . $id . ";")->fetch();
+	}
 }

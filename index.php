@@ -29,41 +29,17 @@ function getPageContent($page) {
 
 			break;
 
-		case 'gestionStockLivre':
-			require_once("controller/StockLivreController.php");
-			StockLivreController::index();
+		case 'alertes':
+			require_once("controller/AlerteStockController.php");
+			AlerteStockController::index();
 
 			break;
 
-		case 'gestionStockDvd':
-			require_once("controller/StockDvdController.php");
-			StockDvdController::index();
-
-		break;
-
-		case 'gestionStockCd':
-			require_once("controller/StockCdController.php");
-			StockCdController::index();
+		case 'detailLivre':
+			require_once("controller/DetailLivreController.php");
+			DetailLivreController::index();
 
 			break;
-
-		// case 'dvd'
-		// 	require_once("controller/DVD_Controller.php");
-		// 	DVD_Controller::index();
-		//
-		// 	break;
-		//
-		// case 'cd'
-		// 	require_once("controller/CD_Controller.php");
-		// 	CD_Controller::index();
-		//
-		// 	break;
-		//
-		// case 'livres'
-		// 	require_once("controller/LivreController.php");
-		// 	LivreController::index();
-		//
-		// 	break;
 
 		//si on a autre chose que index, on inclus une error
 		default:
