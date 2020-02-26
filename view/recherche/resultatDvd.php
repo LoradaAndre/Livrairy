@@ -10,7 +10,11 @@ foreach ($searchDvd as $dvd) {
 		<div class="desc col-lg-6">
 			<!-- Titre -->
 			<div class="row">
-				<?php echo "Titre : " . $dvd["DVD_TITRE"] ?>
+				<a href="?page=detailDvd&id=<?= $dvd["DVD_ID"] ?>&name=<?= $dvd["DVD_TITRE"] ?>">
+					<?php
+					echo "Titre : " . $dvd["DVD_TITRE"];
+					 ?>
+				</a>
 			</div>
 			<!-- Réalisateur -->
 			<div class="row">

@@ -11,7 +11,11 @@ foreach ($livre5Last as $last5L){
 	<div class="p-2">
 		<img class="img-fluid" src="public/images/article.jpg" alt="" width="100%">
 		<div class="font-weight-bold text-center">
-			<?php echo $last5L["LIV_TITRE"]; ?>
+			<a href="?page=detailLivre&id=<?= $last5L["LIV_ID"] ?>&name=<?= $last5L["LIV_TITRE"] ?>">
+<?php
+				echo $last5L["LIV_TITRE"] . " - T" . $last5L["LIV_TOME"];
+?>
+			</a>
 		</div>
 		<div class="">
 			<?php echo "Sortie: " . $last5L["LIV_DATE_PARUTION"]; ?>

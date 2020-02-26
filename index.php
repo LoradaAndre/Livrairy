@@ -41,6 +41,18 @@ function getPageContent($page) {
 
 			break;
 
+		case 'detailCd':
+			require_once("controller/DetailCdController.php");
+			DetailCdController::index();
+
+			break;
+			
+		case 'detailDvd':
+			require_once("controller/DetailDvdController.php");
+			DetailDvdController::index();
+
+			break;
+
 		//si on a autre chose que index, on inclus une error
 		default:
 			include("view/error/error_404.php");

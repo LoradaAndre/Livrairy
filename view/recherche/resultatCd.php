@@ -12,7 +12,11 @@ foreach ($searchCd as $cd) {
 
 			<!-- Titre -->
 			<div class="row">
-				<?php echo "Titre : " . $cd["CD_TITRE"] ?>
+				<a href="?page=detailCd&id=<?= $cd["CD_ID"] ?>&name=<?= $cd["CD_TITRE"] ?>">
+<?php
+					echo "Titre : " . $cd["CD_TITRE"]
+?>
+				</a>
 			</div>
 
 			<!-- Auteur/Genre -->

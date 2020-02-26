@@ -13,7 +13,7 @@ class CD_Dao extends BDD {
 	}
 
 	function getById($id) {
-		return $this->$bdd->query("SELECT * FROM CD WHERE ID = " . $id . ";")->fetchAll();
+		return $this->bdd->query("SELECT * FROM CD, AUTEUR_CD, GENRE_MUSICAL WHERE CD.CD_ID_AUTEUR = AUTEUR_CD.AUTCD_ID AND CD.CD_ID_GENRE_MUS = GENRE_MUSICAL.GENMUS_ID AND CD.CD_ID = " . $id . ";")->fetch();
 	}
 
 	function getByName($name) {

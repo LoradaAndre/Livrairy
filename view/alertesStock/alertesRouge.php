@@ -4,7 +4,7 @@
 if(isset($livreAlerteRouge)){
 	foreach ($livreAlerteRouge as $livre) {
 	?>
-		<div class="row align-items-center justify-content-md-center border-bottom p-2 bg-danger">
+		<div class="row align-items-center justify-content-md-center mt-3 border-left border border-danger p-2">
 			<!-- 1ère partie: Image -->
 			<div class="image col-lg-1">
 				<img class="img-fluid" src="public/images/article.jpg" alt="" width="100%">
@@ -26,7 +26,7 @@ if(isset($livreAlerteRouge)){
 						<?php echo "Prix : " . $livre["LIV_PRIX"] ?>
 					</div>
 					<div class="col-lg-6 font-weight-bold">
-						<?php echo "Quantite : " . $livre["LIV_QUANTITE"] ?>
+						<?php echo "Quantite : <span class=\"text-danger\">" . $livre["LIV_QUANTITE"] ?> </span>
 					</div>
 				</div>
 			</div>
@@ -41,7 +41,7 @@ if(isset($livreAlerteRouge)){
 if(isset($cdAlerteRouge)){
 	foreach ($cdAlerteRouge as $cd) {
 	?>
-		<div class="row align-items-center justify-content-md-center border-bottom p-2 bg-danger">
+		<div class="row align-items-center justify-content-md-center mt-3 border-left border border-danger p-2">
 			<!-- 1ère partie: Image -->
 			<div class="image col-lg-1">
 				<img class="img-fluid" src="public/images/article.jpg" alt="" width="100%">
@@ -63,7 +63,7 @@ if(isset($cdAlerteRouge)){
 						<?php echo "Prix : " . $cd["CD_PRIX"] ?>
 					</div>
 					<div class="col-lg-6 font-weight-bold">
-						<?php echo "Quantite : " . $cd["CD_QUANTITE"] ?>
+						<?php echo "Quantite : <span class=\"text-danger\">" . $cd["CD_QUANTITE"] ?> </span>
 					</div>
 				</div>
 			</div>
@@ -78,7 +78,7 @@ if(isset($cdAlerteRouge)){
 if(isset($dvdAlerteRouge)){
 	foreach ($dvdAlerteRouge as $dvd) {
 	?>
-		<div class="row align-items-center justify-content-md-center border-bottom p-2 bg-danger">
+		<div class="row align-items-center justify-content-md-center mt-3 border-left border border-danger p-2">
 			<!-- 1ère partie: Image -->
 			<div class="image col-lg-1">
 				<img class="img-fluid" src="public/images/article.jpg" alt="" width="100%">
@@ -100,7 +100,7 @@ if(isset($dvdAlerteRouge)){
 						<?php echo "Prix : " . $dvd["DVD_PRIX"] ?>
 					</div>
 					<div class="col-lg-6 font-weight-bold">
-						<?php echo "Quantite : " . $dvd["DVD_QUANTITE"] ?>
+						<?php echo "Quantite : <span class=\"text-danger\">" . $dvd["DVD_QUANTITE"] ?> </span>
 					</div>
 				</div>
 			</div>
