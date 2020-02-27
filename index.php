@@ -15,8 +15,9 @@ include("view/pagedebase.php");
 
 function getPageContent($page) {
 	ob_start();
+
+	//on vérifie sur quelle page on est
 	switch ($_GET["page"]) {
-		//On apelle les controleurs utiles pour la page index
 		case 'accueil':
 			require_once("controller/AccueilController.php");
 			AccueilController::index();
@@ -46,12 +47,16 @@ function getPageContent($page) {
 			DetailCdController::index();
 
 			break;
-			
+
 		case 'detailDvd':
 			require_once("controller/DetailDvdController.php");
 			DetailDvdController::index();
 
 			break;
+
+		case 'connect':
+			require_once("controller/ConnectionController.php");
+			ConnectionController::index();
 
 		//si on a autre chose que index, on inclus une error
 		default:
