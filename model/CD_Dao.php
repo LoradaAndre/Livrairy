@@ -8,20 +8,30 @@ class CD_Dao extends BDD {
 		parent::__construct();
 	}
 
-	function getAll() {
+	function getAll(){
 		return $this->bdd->query("SELECT * FROM CD, AUTEUR_CD, GENRE_MUSICAL WHERE CD.CD_ID_AUTEUR = AUTEUR_CD.AUTCD_ID AND CD.CD_ID_GENRE_MUS = GENRE_MUSICAL.GENMUS_ID ;")->fetchAll();
 	}
 
-	function getById($id) {
-		return $this->bdd->query("SELECT * FROM CD, AUTEUR_CD, GENRE_MUSICAL WHERE CD.CD_ID_AUTEUR = AUTEUR_CD.AUTCD_ID AND CD.CD_ID_GENRE_MUS = GENRE_MUSICAL.GENMUS_ID AND CD.CD_ID = " . $id . ";")->fetch();
+	function getById($id){
+		$req = $this->bdd->query("SELECT * FROM CD, AUTEUR_CD, GENRE_MUSICAL WHERE CD.CD_ID_AUTEUR = AUTEUR_CD.AUTCD_ID AND CD.CD_ID_GENRE_MUS = GENRE_MUSICAL.GENMUS_ID AND CD.CD_ID = ? ;");
+		$req->execute(array($id));
+		return $req->fetch();
 	}
 
-	function getByName($name) {
-		return $this->bdd->query("SELECT * FROM CD, AUTEUR_CD, GENRE_MUSICAL WHERE CD.CD_ID_AUTEUR = AUTEUR_CD.AUTCD_ID AND CD.CD_ID_GENRE_MUS = GENRE_MUSICAL.GENMUS_ID AND CD.CD_TITRE LIKE '%" . $name . "%';")->fetchAll();
+	function getByName($name){
+		$req =  "SELECT * FROM CD, AUTEUR_CD, GENRE_MUSICAL WHERE CD.CD_ID_AUTEUR = AUTEUR_CD.AUTCD_ID AND CD.CD_ID_GENRE_MUS = GENRE_MUSICAL.GENMUS_ID AND CD.CD_TITRE LIKE :name ;";
+		$requete = $this->bdd->prepare($req, array(PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY));
+		$requete->execute(array(':name' => "%" . $name . "%"));
+		return $requete->fetchAll();
+		//$req->execute(array($name));
+		//return $req->fetchAll();
 	}
 
-	function getByAuteur($auteur) {
-		return $this->bdd->query("SELECT * FROM CD, AUTEUR_CD, GENRE_MUSICAL WHERE CD.CD_ID_AUTEUR = AUTEUR_CD.AUTCD_ID AND CD.CD_ID_GENRE_MUS = GENRE_MUSICAL.GENMUS_ID AND (AUTEUR_CD.AUTCD_NOM LIKE '%" . $auteur . "%' OR AUTEUR_CD.AUTCD_PRENOM LIKE '%" . $auteur . "%');")->fetchAll();
+	function getByAuteur($auteur){
+		$req = "SELECT * FROM CD, AUTEUR_CD, GENRE_MUSICAL WHERE CD.CD_ID_AUTEUR = AUTEUR_CD.AUTCD_ID AND CD.CD_ID_GENRE_MUS = GENRE_MUSICAL.GENMUS_ID AND (AUTEUR_CD.AUTCD_NOM LIKE :auteur OR AUTEUR_CD.AUTCD_PRENOM LIKE :auteur );";
+		$requete = $this->bdd->prepare($req, array(PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY));
+		$requete->execute(array(':auteur' => "%" . $auteur . "%",':auteur' => "%" . $auteur . "%"));
+		return $requete->fetchAll();
 	}
 
 	function getAlerteOrangeCd(){

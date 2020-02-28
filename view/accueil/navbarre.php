@@ -39,10 +39,10 @@
    			    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Mon Compte</a>
 				<div class="dropdown-menu">
 					<?php
-					$isConnect = false;
+					$isConnect = true;
 					if($isConnect){
 					?>
-					<a class="dropdown-item" href="#page=profil">Mon Profil</a>
+					<a class="dropdown-item" href="?page=profil">Mon Profil</a>
 					<div class="dropdown-divider"></div>
 					<a class="dropdown-item" href="#">Déconnection</a>
 					<?php
