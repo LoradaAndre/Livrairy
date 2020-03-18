@@ -58,7 +58,7 @@ foreach ($searchCd as $cd) {
 		</div>
 
 		<!-- 3ème partie: Bouttons -->
-		<?php include("view/recherche/boutons.html") ?>
+		<?php include("view/recherche/boutons.php") ?>
 	</div>
 
 	<?php

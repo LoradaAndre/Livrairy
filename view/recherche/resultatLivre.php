@@ -65,7 +65,7 @@ foreach ($searchLivre as $livre) {
 		</div>
 		<!-- 3ère partie: Boutons -->
 
-		<?php include("view/recherche/boutons.html") ?>
+		<?php include("view/recherche/boutons.php") ?>
 
 	</div>
 

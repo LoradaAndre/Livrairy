@@ -28,6 +28,9 @@ padding-left:0;
 .border-left{
     border-left-width:15px !important;
 }
+.text-primary{
+	color: #B13C57 !important;
+}
 /* .nav-item{
 	color: white;
 } */

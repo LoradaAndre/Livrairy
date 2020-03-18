@@ -1,14 +1,16 @@
 <div class="text-center m-4">
 		<h2>Se connecter</h2>
 </div>
-	<form class="col-lg-5 border p-3 m-auto">
+	<form action="index.php" method="post" class="col-lg-5 border p-3 m-auto">
 	  <div class="form-group">
 	    <label for="identifiant">Identifiant</label>
-	    <input type="email" class="form-control" id="identifiant" aria-describedby="emailHelp" placeholder="name@example.com">
+	    <input type="email" class="form-control" id="identifiant" aria-describedby="emailHelp" placeholder="name@example.com" name="identifiant">
+
 	  </div>
 	  <div class="form-group">
 	    <label for="exampleInputPassword1">Mot de passe</label>
-	    <input type="password" class="form-control" id="exampleInputPassword1">
+	    <input type="password" class="form-control" id="exampleInputPassword1" name="motDePasse">
+
 	  </div>
 	  <div class="form-check">
 	    <input type="checkbox" class="form-check-input" id="check">

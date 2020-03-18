@@ -11,7 +11,7 @@ foreach ($cd5Last as $last5C){
 	<div class="p-2">
 		<img class="img-fluid" src="public/images/article.jpg" alt="" width="100%">
 		<div class="font-weight-bold text-center">
-			<a href="?page=detailCd&id=<?= $last5C["CD_ID"] ?>&name=<?= $last5C["CD_TITRE"] ?>">
+			<a class="text-primary" href="?page=detailCd&id=<?= $last5C["CD_ID"] ?>&name=<?= $last5C["CD_TITRE"] ?>">
 <?php
 				echo $last5C["CD_TITRE"]
 ?>

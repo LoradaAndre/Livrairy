@@ -39,7 +39,7 @@
    			    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Mon Compte</a>
 				<div class="dropdown-menu">
 					<?php
-					$isConnect = true;
+					$isConnect = false;
 					if($isConnect){
 					?>
 					<a class="dropdown-item" href="?page=profil">Mon Profil</a>

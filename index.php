@@ -58,9 +58,13 @@ function getPageContent($page) {
 			require_once("controller/ConnectionController.php");
 			ConnectionController::index();
 
+			break;
+
 		case 'profil':
 			require_once("controller/ProfilController.php");
 			ProfilController::index();
+
+			break;
 
 		//si on a autre chose que index, on inclus une error
 		default:

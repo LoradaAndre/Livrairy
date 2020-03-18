@@ -11,7 +11,7 @@ foreach ($dvd5Last as $last5D){
 	<div class="p-2">
 		<img class="img-fluid" src="public/images/article.jpg" alt="" width="100%">
 		<div class="font-weight-bold text-center">
-			<a href="?page=detailDvd&id=<?= $last5D["DVD_ID"] ?>&name=<?= $last5D["DVD_TITRE"] ?>">
+			<a class="text-primary" href="?page=detailDvd&id=<?= $last5D["DVD_ID"] ?>&name=<?= $last5D["DVD_TITRE"] ?>">
 				<?php
 				echo $last5D["DVD_TITRE"];
 				 ?>
